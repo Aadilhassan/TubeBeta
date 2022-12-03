@@ -1,7 +1,7 @@
 
 import styles from '../styles/Home.module.css'
 import Image from 'next/image';
-import logo from '../staticFiles/Logo.png';
+import logo from './staticFiles/Logo.png';
 import SearchBar from "../components/SearchBar";
 import VideoListContainer from "../components/VideoListContainer";
 export default function Home() {
