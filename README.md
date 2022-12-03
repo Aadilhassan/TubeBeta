@@ -1,7 +1,7 @@
 # TubeBeta
 
 ## What is TubeBeta?
-TubeBeta is a simple, lightweight, and easy to use YouTube client for Android. It is designed to be simple and easy to use, while still providing the features you need to enjoy YouTube.
+TubeBeta is a simple, lightweight, and easy to use YouTube client for Web. It is designed to be simple and easy to use, while still providing the features you need to enjoy YouTube.
 with ability to download videos and watch them offline.
 
 ## Features
