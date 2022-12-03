@@ -1,5 +1,8 @@
 import styles from '../styles/VideoCard.module.css';
 
+
+import {useRouter} from "next/router";
+
 export default function VideoCard(props) {
     function relativeDays(timestamp) {
         const rtf = new Intl.RelativeTimeFormat('en', {
@@ -28,11 +31,12 @@ export default function VideoCard(props) {
         });
         return item ? (num / item.value).toFixed(digits).replace(rx, "$1") + item.symbol : "0";
     }
+    const router = useRouter()
 
     return (
         <div>
             <div className={styles.Container}>
-                <img className={styles.image} src={props.video.snippet.thumbnails.medium.url} alt="thumbnail" />
+                <img className={styles.image} onClick={()=>router.push(`/watch?id=`+ props.video.id)} src={props.video.snippet.thumbnails.medium.url} alt="thumbnail" />
            <span className={styles.TitleContainer}>    <img className={styles.ChannelImage} src={props.video.snippet.thumbnails.medium.url} />
                 <div className={styles.title}>{props.video.snippet.title}</div>
                </span>
