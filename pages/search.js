@@ -1,18 +1,18 @@
 
 import {useEffect, useState} from "react";
 import VideoCard from "../components/VideoCard";
+import HeaderTop from "../components/HeaderTop";
+import styles from "../styles/VideoContainer.module.css";
+import {useRouter} from "next/router";
+
 export default  function search() {
+    const router = useRouter();
+    const query = router.query.q;
     const [videoList, setVideoList] = useState(null);
+const [search, setSearch] = useState(router.query.q  ? router.query.q : null);
 
     const fetchData = async () => {
-    fetch('/api/search', {
-
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-            },
-        body: JSON.stringify({q: 'hello'})
-    })
+    fetch('/api/search?q='+search)
 
         .then(response => response.json())
         .then(data => {
@@ -23,13 +23,16 @@ export default  function search() {
 
 
     useEffect(() => {
+        console.log(router.query.q)
         fetchData();
-    },[])
+    },[search])
 
 
     return (
         <div>
-            <h1>Search</h1>
+            <HeaderTop />
+        <div className={styles.Container}>
+
 
             {
                 videoList && videoList.map((video) => {
@@ -39,6 +42,7 @@ export default  function search() {
             }
 
 
+        </div>
         </div>
     )
 }
